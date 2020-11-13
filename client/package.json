@@ -1,0 +1,43 @@
+{
+  "name": "subscription-test-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "graphql": "^15.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "reason-apollo-client": "1.0.0-beta.1",
+    "reason-promise": "1.1.2",
+    "reason-react": "0.9.1",
+    "subscriptions-transport-ws": "^0.9.16",
+    "@reasonml-community/graphql-ppx": "1.0.1",
+    "bs-platform": "8.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "cleaner": "bsb -clean-world",
+    "watch": "BS_WATCH_CLEAR=true bsb -make-world -w",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "schema": "npx get-graphql-schema http://localhost:4000/ -j > graphql_schema.json",
+    "gql": "npx get-graphql-schema http://localhost:4000/ > schema.gql"
+    },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

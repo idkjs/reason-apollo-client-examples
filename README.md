@@ -1,3 +1,3 @@
 This project was bootstrapped with [meiraleal/graphql](https://github.com/meiraleal/graphql).
 
-The idea here is to convert the queries but your were faded.
+ReasonML, Graphql, [reason-apollo-client](https://github.com/reasonml-community/reason-apollo-client) subscriptions.

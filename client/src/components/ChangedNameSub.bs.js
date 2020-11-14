@@ -5,20 +5,20 @@ var GQL = require("../GQL.bs.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 
-function Subscription(Props) {
-  var _ignoredForExample = Curry._7(GQL.CompanyAddedSub.use, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+function ChangedNameSub(Props) {
+  var _ignoredForExample = Curry._7(GQL.NameChangedSub.use, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   var match = _ignoredForExample.data;
   var tmp;
   if (match !== undefined) {
-    var match$1 = match.companyAdded;
+    var match$1 = match.companyNameChanged;
     tmp = match$1 !== undefined ? React.createElement("p", undefined, "New company is: " + match$1.name) : null;
   } else {
     tmp = null;
   }
-  return React.createElement(React.Fragment, undefined, React.createElement("p", undefined, "[ New Companies Subscription will show here ]"), tmp);
+  return React.createElement(React.Fragment, undefined, React.createElement("h4", undefined, "[ Company Name Changed Subscription will show here ]"), tmp);
 }
 
-var make = Subscription;
+var make = ChangedNameSub;
 
 exports.make = make;
 /* GQL Not a pure module */

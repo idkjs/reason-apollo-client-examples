@@ -1,7 +1,6 @@
 [@react.component]
 let make = () => {
   let queryResult = GQL.CompaniesQuery.use();
-  let (mutate, result) = GQL.DeleteCompanyMutation.use();
   <div>
     {switch (queryResult) {
      | {loading: true, data: None} => <p> "Loading"->React.string </p>
@@ -10,7 +9,7 @@ let make = () => {
          companies
          ->Belt.Option.getWithDefault([||])
          ->Belt.Array.keepMap(e => e);
-
+       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
        <>
          <dialog>
            {loading ? <p> "Refreshing..."->React.string </p> : React.null}
@@ -22,24 +21,23 @@ let make = () => {
             | None => React.null
             }}
          </dialog>
-         <div>
-           {companies
-            ->Belt.Array.map(company =>
-                <div key={company.id->string_of_int}>
-                  <h3> company.name->React.string </h3>
-                  <ChangeName company />
-                  <button onClick={_ => mutate({id: company.id})->ignore}>
-                    "Delete"->React.string
-                  </button>
-                </div>
-              )
-            ->React.array}
-           <br />
-           <hr />
-           <br />
-           <h1> "add a new company"->React.string </h1>
-           <AddCompany />
-         </div>
+         <CompanyList />
+         <br />
+         <hr />
+         <br />
+         <CompaniesList companies />
+         <br />
+         <hr />
+         <br />
+         <AddCompany />
+         <br />
+         <hr />
+         <br />
+         <Query_Lazy />
+         <br />
+         <hr />
+         <br />
+         <ChangedNameSub />
          <br />
          <hr />
          <br />

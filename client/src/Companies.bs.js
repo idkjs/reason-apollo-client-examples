@@ -6,10 +6,13 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var AddCompany = require("./components/AddCompany.bs.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
-var ChangeName = require("./components/ChangeName.bs.js");
+var Query_Lazy = require("./hooksUsage/Query_Lazy.bs.js");
 var Belt_Option = require("bs-platform/lib/js/belt_Option.js");
+var CompanyList = require("./components/CompanyList.bs.js");
 var Subscription = require("./hooksUsage/Subscription.bs.js");
+var CompaniesList = require("./components/CompaniesList.bs.js");
 var Query_Typical = require("./hooksUsage/Query_Typical.bs.js");
+var ChangedNameSub = require("./components/ChangedNameSub.bs.js");
 var Query_Fragments = require("./fragmentsUsage/Query_Fragments.bs.js");
 var Query_SubscribeToMore = require("./hooksUsage/Query_SubscribeToMore.bs.js");
 
@@ -30,42 +33,15 @@ function Companies(Props) {
         undefined,
         undefined
       ]);
-  var match = Curry.app(GQL.DeleteCompanyMutation.use, [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined
-      ]);
-  var mutate = match[0];
-  var match$1 = queryResult.data;
+  var match = queryResult.data;
   var tmp;
-  if (match$1 !== undefined) {
-    var companies = Belt_Array.keepMap(Belt_Option.getWithDefault(match$1.companies, []), (function (e) {
+  if (match !== undefined) {
+    var companies = Belt_Array.keepMap(Belt_Option.getWithDefault(match.companies, []), (function (e) {
             return e;
           }));
-    tmp = React.createElement(React.Fragment, undefined, React.createElement("dialog", undefined, queryResult.loading ? React.createElement("p", undefined, "Refreshing...") : null, queryResult.error !== undefined ? React.createElement("p", undefined, "Something went wrong, data may be incomplete") : null), React.createElement("div", undefined, Belt_Array.map(companies, (function (company) {
-                    return React.createElement("div", {
-                                key: String(company.id)
-                              }, React.createElement("h3", undefined, company.name), React.createElement(ChangeName.make, {
-                                    company: company
-                                  }), React.createElement("button", {
-                                    onClick: (function (param) {
-                                        Curry._8(mutate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {
-                                              id: company.id
-                                            });
-                                        
-                                      })
-                                  }, "Delete"));
-                  })), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h1", undefined, "add a new company"), React.createElement(AddCompany.make, {})), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(Subscription.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h4", undefined, "Query with Subscription for More"), React.createElement(Query_SubscribeToMore.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h4", undefined, "Typical Query"), React.createElement(Query_Typical.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h2", undefined, "Using Query Fragments"), React.createElement(Query_Fragments.make, {}));
+    tmp = React.createElement(React.Fragment, undefined, React.createElement("dialog", undefined, queryResult.loading ? React.createElement("p", undefined, "Refreshing...") : null, queryResult.error !== undefined ? React.createElement("p", undefined, "Something went wrong, data may be incomplete") : null), React.createElement(CompanyList.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(CompaniesList.make, {
+              companies: companies
+            }), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(AddCompany.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(Query_Lazy.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(ChangedNameSub.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement(Subscription.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h4", undefined, "Query with Subscription for More"), React.createElement(Query_SubscribeToMore.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h4", undefined, "Typical Query"), React.createElement(Query_Typical.make, {}), React.createElement("br", undefined), React.createElement("hr", undefined), React.createElement("br", undefined), React.createElement("h2", undefined, "Using Query Fragments"), React.createElement(Query_Fragments.make, {}));
   } else {
     tmp = queryResult.loading ? React.createElement("p", undefined, "Loading") : React.createElement("p", undefined, "Error loading data");
   }

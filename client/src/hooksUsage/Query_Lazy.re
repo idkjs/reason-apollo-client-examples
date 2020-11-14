@@ -1,24 +1,13 @@
-[%graphql
-  {|
-    query CompaniesQuery {
-      companies {
-        id
-        name
-      }
-    }
-  |}
-];
-
 [@react.component]
 let make = () => {
-  let (executeQuery, queryResult) = CompaniesQuery.useLazy();
+  let (executeQuery, queryResult) = GQL.CompaniesQuery.useLazy();
   <div>
     {switch (queryResult) {
      | Unexecuted(_) =>
        <>
-         "Waiting to be executed... "->React.string
+         "Lazy Query Waiting to be executed... "->React.string
          <button onClick={_ => executeQuery()} value="execute">
-           "Execute"->React.string
+           "Get Company Count"->React.string
          </button>
        </>
      | Executed({loading: true, data: None}) =>

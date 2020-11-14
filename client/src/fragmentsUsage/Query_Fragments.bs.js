@@ -6,6 +6,7 @@ var React = require("react");
 var Fragments = require("./Fragments.bs.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Belt_Option = require("bs-platform/lib/js/belt_Option.js");
+var CompaniesFragmentList = require("./CompaniesFragmentList.bs.js");
 var ApolloClient__React_Hooks_UseQuery = require("reason-apollo-client/src/@apollo/client/react/hooks/ApolloClient__React_Hooks_UseQuery.bs.js");
 
 var Raw = {};
@@ -131,6 +132,8 @@ function Query_Fragments(Props) {
             return e;
           }));
     tmp = React.createElement(React.Fragment, undefined, React.createElement("dialog", undefined, queryResult.loading ? React.createElement("p", undefined, "Refreshing...") : null, queryResult.error !== undefined ? React.createElement("p", undefined, "Something went wrong, data may be incomplete") : null), React.createElement(Query_Fragments$CompanyCount, {
+              companies: companies
+            }), React.createElement(CompaniesFragmentList.make, {
               companies: companies
             }));
   } else {

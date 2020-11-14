@@ -444,7 +444,7 @@ var CompanyAddedSub = {
 var Raw$5 = {};
 
 var query$5 = (require("@apollo/client").gql`
-  subscription CompanyRemovedSub  {
+  subscription CompanyDeleteSub  {
     companyRemoved  {
       __typename
       id
@@ -492,7 +492,7 @@ function makeDefaultVariables$2(param) {
   
 }
 
-var CompanyRemovedSub_inner = {
+var CompanyDeleteSub_inner = {
   Raw: Raw$5,
   query: query$5,
   parse: parse$5,
@@ -510,10 +510,10 @@ var include$5 = ApolloClient__React_Hooks_UseSubscription.Extend({
       serializeVariables: serializeVariables$5
     });
 
-var CompanyRemovedSub_use = include$5.use;
+var CompanyDeleteSub_use = include$5.use;
 
-var CompanyRemovedSub = {
-  CompanyRemovedSub_inner: CompanyRemovedSub_inner,
+var CompanyDeleteSub = {
+  CompanyDeleteSub_inner: CompanyDeleteSub_inner,
   Raw: Raw$5,
   query: query$5,
   parse: parse$5,
@@ -521,7 +521,7 @@ var CompanyRemovedSub = {
   serializeVariables: serializeVariables$5,
   makeVariables: makeVariables$5,
   makeDefaultVariables: makeDefaultVariables$2,
-  use: CompanyRemovedSub_use
+  use: CompanyDeleteSub_use
 };
 
 var Raw$6 = {};
@@ -630,6 +630,6 @@ exports.AddCompanyMutation = AddCompanyMutation;
 exports.DeleteCompanyMutation = DeleteCompanyMutation;
 exports.NameChangedSub = NameChangedSub;
 exports.CompanyAddedSub = CompanyAddedSub;
-exports.CompanyRemovedSub = CompanyRemovedSub;
+exports.CompanyDeleteSub = CompanyDeleteSub;
 exports.CompaniesQuery = CompaniesQuery;
 /* query Not a pure module */

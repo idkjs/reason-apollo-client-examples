@@ -32,6 +32,7 @@ let make = (~company: GQL.CompaniesQuery.t_companies) => {
         }}>
         "Rename"->React.string
       </button>
+      
     </>
   | {loading: true} => "Loading..."->React.string
   | {data: Some({changeCompanyName}), error: None} =>
@@ -39,9 +40,12 @@ let make = (~company: GQL.CompaniesQuery.t_companies) => {
       changeCompanyName
       ->Belt.Option.map(c => c.name)
       ->Belt.Option.getWithDefault("");
-
-    <p> {React.string("Name Changed to: \"" ++ name ++ "\"")} </p>;
-
+  <>
+    <p>
+      "[ Name Changed Mutation Result, Not Subscription ]"->React.string
+    </p>
+    <p> {React.string("Name Changed to: \"" ++ name ++ "\"")} </p>
+  </>
   | {error} =>
     <>
       "Error loading data"->React.string

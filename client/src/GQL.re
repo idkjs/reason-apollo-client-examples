@@ -52,7 +52,7 @@
 
 [%graphql
   {|
-  subscription CompanyRemovedSub {
+  subscription CompanyDeleteSub {
     companyRemoved {
       id
     }

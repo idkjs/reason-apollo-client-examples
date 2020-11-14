@@ -1,21 +1,10 @@
-module CompanyAddedSubscription = [%graphql
-  {|
-  subscription CompanyAdded {
-    companyAdded {
-      id
-      name
-    }
-  }
-  |}
-];
-
 [@react.component]
 let make = () => {
   <>
     <p>
       "[ New Companies Subscription will show here ]"->React.string
     </p>
-    {switch (CompanyAddedSubscription.use()) {
+    {switch (GQL.CompanyAddedSub.use()) {
      | {data: Some({companyAdded: Some({name})})} =>
        <p>
          {React.string(

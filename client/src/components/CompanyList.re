@@ -1,35 +1,7 @@
-// The TodosQuery below is going to look for a module of the same name to define the fragment
-module Company = Fragments.Company;
-
-[%graphql
-  {|
-    query CompaniesQuery {
-      companies {
-        # This references the Company fragment definition module above!
-        ...Company
-      }
-    }
-  |}
-];
-
-// It's easy to share types when using Fragments
-module CompanyCount = {
-  [@react.component]
-  let make = (~companies: array(Company.t)) => {
-    <p>
-      {React.string(
-         "There are "
-         ++ companies->Belt.Array.length->string_of_int
-         ++ " Companies",
-       )}
-    </p>;
-  };
-};
-
 [@react.component]
 let make = () => {
-  let queryResult = CompaniesQuery.use();
-
+  let queryResult = GQL.CompaniesQuery.use();
+  let (mutate, _) = GQL.DeleteCompanyMutation.use();
   <div>
     {switch (queryResult) {
      | {loading: true, data: None} => <p> "Loading"->React.string </p>
@@ -50,8 +22,21 @@ let make = () => {
             | None => React.null
             }}
          </dialog>
-         <CompanyCount companies />
-         <CompaniesFragmentList companies />
+         <div>
+         <h4> "Company List"->React.string </h4>
+           {companies
+            ->Belt.Array.map(company =>
+                <div key={company.id->string_of_int}>
+                  <h3> company.name->React.string </h3>
+                  <ChangeName company />
+                  <button onClick={_ => mutate({id: company.id})->ignore}>
+                    "Delete"->React.string
+                  </button>
+                </div>
+              )
+            ->React.array}
+         </div>
+ 
        </>;
      | {loading: false, data: None} =>
        <p> "Error loading data"->React.string </p>

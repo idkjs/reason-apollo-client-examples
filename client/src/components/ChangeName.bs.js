@@ -64,7 +64,7 @@ function ChangeName(Props) {
     var name$1 = Belt_Option.getWithDefault(Belt_Option.map(match$2.changeCompanyName, (function (c) {
                 return c.name;
               })), "");
-    return React.createElement("p", undefined, "Name Changed to: \"" + (name$1 + "\""));
+    return React.createElement(React.Fragment, undefined, React.createElement("p", undefined, "[ Name Changed Mutation Result, Not Subscription ]"), React.createElement("p", undefined, "Name Changed to: \"" + (name$1 + "\"")));
   }
   var error = result.error;
   return React.createElement(React.Fragment, undefined, "Error loading data", error !== undefined ? ": " + error.message : null);

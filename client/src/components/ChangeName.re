@@ -1,6 +1,6 @@
 [@react.component]
-let make = (~company:GQL.Companies.Companies_inner.t_companies) => {
-  let (mutate, result) = GQL.ChangeCompanyName.use();
+let make = (~company: GQL.CompaniesQuery.t_companies) => {
+  let (mutate, result) = GQL.ChangeNameMutation.use();
   let (name, setName) = React.useState(() => company.name);
 
   React.useEffect1(
@@ -23,12 +23,15 @@ let make = (~company:GQL.Companies.Companies_inner.t_companies) => {
       />
       <button
         onClick={_ => {
-          let variables = GQL.ChangeCompanyName.makeVariables(~input={ id: company.id, name }, ());
+          let variables =
+            GQL.ChangeNameMutation.makeVariables(
+              ~input={id: company.id, name},
+              (),
+            );
           mutate(variables)->ignore;
         }}>
         "Rename"->React.string
       </button>
-
     </>
   | {loading: true} => "Loading..."->React.string
   | {data: Some({changeCompanyName}), error: None} =>

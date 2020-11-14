@@ -113,7 +113,7 @@ var CompaniesQuery = {
 var Raw$1 = {};
 
 var query$1 = (require("@apollo/client").gql`
-  subscription SubscriptionForCompanies  {
+  subscription CompanyAddedSub  {
     companyAdded  {
       __typename
       id
@@ -165,7 +165,7 @@ function makeDefaultVariables$1(param) {
   
 }
 
-var SubscriptionForCompanies_inner = {
+var CompanyAddedSub_inner = {
   Raw: Raw$1,
   query: query$1,
   parse: parse$1,
@@ -183,10 +183,10 @@ var include$1 = ApolloClient__React_Hooks_UseSubscription.Extend({
       serializeVariables: serializeVariables$1
     });
 
-var SubscriptionForCompanies_use = include$1.use;
+var CompanyAddedSub_use = include$1.use;
 
-var SubscriptionForCompanies = {
-  SubscriptionForCompanies_inner: SubscriptionForCompanies_inner,
+var CompanyAddedSub = {
+  CompanyAddedSub_inner: CompanyAddedSub_inner,
   Raw: Raw$1,
   query: query$1,
   parse: parse$1,
@@ -194,7 +194,7 @@ var SubscriptionForCompanies = {
   serializeVariables: serializeVariables$1,
   makeVariables: makeVariables$1,
   makeDefaultVariables: makeDefaultVariables$1,
-  use: SubscriptionForCompanies_use
+  use: CompanyAddedSub_use
 };
 
 function Query_SubscribeToMore(Props) {
@@ -303,6 +303,6 @@ function Query_SubscribeToMore(Props) {
 var make = Query_SubscribeToMore;
 
 exports.CompaniesQuery = CompaniesQuery;
-exports.SubscriptionForCompanies = SubscriptionForCompanies;
+exports.CompanyAddedSub = CompanyAddedSub;
 exports.make = make;
 /* query Not a pure module */

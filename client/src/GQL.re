@@ -1,6 +1,6 @@
 [%graphql
   {|
-  mutation ChangeCompanyName($input: ChangeCompanyInput!) {
+  mutation ChangeNameMutation($input: ChangeCompanyInput!) {
     changeCompanyName(input: $input) {
       id
       name
@@ -10,8 +10,8 @@
 ];
 
 [%graphql
-{|
-  mutation AddCompany($name: String!) {
+  {|
+  mutation AddCompanyMutation($name: String!) {
     addCompany(name: $name) {
       id
       name
@@ -21,18 +21,16 @@
 ];
 
 [%graphql
-{|
-  mutation DeleteCompany($id: Int!) {
+  {|
+  mutation DeleteCompanyMutation($id: Int!) {
     deleteCompany(id: $id)
   }
   |}
 ];
 
-
-
 [%graphql
-{|
-  subscription CompanyNameChanged {
+  {|
+  subscription NameChangedSub {
     companyNameChanged {
       id
       name
@@ -41,10 +39,9 @@
   |}
 ];
 
-
 [%graphql
-{|
-  subscription CompanyAdded {
+  {|
+  subscription CompanyAddedSub {
     companyAdded {
       id
       name
@@ -53,10 +50,9 @@
   |}
 ];
 
-
 [%graphql
-{|
-  subscription CompanyRemoved {
+  {|
+  subscription CompanyRemovedSub {
     companyRemoved {
       id
     }
@@ -64,10 +60,9 @@
   |}
 ];
 
-
 [%graphql
   {|
-    query Companies {
+    query CompaniesQuery {
       companies {
         id
         name

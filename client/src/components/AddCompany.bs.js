@@ -7,7 +7,7 @@ var React = require("react");
 var Belt_Option = require("bs-platform/lib/js/belt_Option.js");
 
 function AddCompany(Props) {
-  var match = Curry.app(GQL.AddCompany.use, [
+  var match = Curry.app(GQL.AddCompanyMutation.use, [
         undefined,
         undefined,
         undefined,
@@ -47,7 +47,7 @@ function AddCompany(Props) {
                       })
                   }), React.createElement("button", {
                     onClick: (function (param) {
-                        var variables = GQL.AddCompany.makeVariables(name, undefined);
+                        var variables = GQL.AddCompanyMutation.makeVariables(name, undefined);
                         Curry._8(mutate, undefined, undefined, undefined, undefined, undefined, undefined, undefined, variables);
                         
                       })

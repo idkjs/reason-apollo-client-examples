@@ -8,7 +8,7 @@ var Belt_Option = require("bs-platform/lib/js/belt_Option.js");
 
 function ChangeName(Props) {
   var company = Props.company;
-  var match = Curry.app(GQL.ChangeCompanyName.use, [
+  var match = Curry.app(GQL.ChangeNameMutation.use, [
         undefined,
         undefined,
         undefined,
@@ -48,7 +48,7 @@ function ChangeName(Props) {
                       })
                   }), React.createElement("button", {
                     onClick: (function (param) {
-                        var variables = GQL.ChangeCompanyName.makeVariables({
+                        var variables = GQL.ChangeNameMutation.makeVariables({
                               id: company.id,
                               name: name
                             }, undefined);

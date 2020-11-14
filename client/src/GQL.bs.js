@@ -8,7 +8,7 @@ var ApolloClient__React_Hooks_UseSubscription = require("reason-apollo-client/sr
 var Raw = {};
 
 var query = (require("@apollo/client").gql`
-  mutation ChangeCompanyName($input: ChangeCompanyInput!)  {
+  mutation ChangeNameMutation($input: ChangeCompanyInput!)  {
     changeCompanyName(input: $input)  {
       __typename
       id
@@ -74,7 +74,7 @@ function makeInputObjectChangeCompanyInput(id, name, param) {
         };
 }
 
-var ChangeCompanyName_inner = {
+var ChangeNameMutation_inner = {
   Raw: Raw,
   query: query,
   parse: parse,
@@ -93,12 +93,12 @@ var include = ApolloClient__React_Hooks_UseMutation.Extend({
       serializeVariables: serializeVariables
     });
 
-var ChangeCompanyName_use = include.use;
+var ChangeNameMutation_use = include.use;
 
-var ChangeCompanyName_useWithVariables = include.useWithVariables;
+var ChangeNameMutation_useWithVariables = include.useWithVariables;
 
-var ChangeCompanyName = {
-  ChangeCompanyName_inner: ChangeCompanyName_inner,
+var ChangeNameMutation = {
+  ChangeNameMutation_inner: ChangeNameMutation_inner,
   Raw: Raw,
   query: query,
   parse: parse,
@@ -107,14 +107,14 @@ var ChangeCompanyName = {
   serializeInputObjectChangeCompanyInput: serializeInputObjectChangeCompanyInput,
   makeVariables: makeVariables,
   makeInputObjectChangeCompanyInput: makeInputObjectChangeCompanyInput,
-  use: ChangeCompanyName_use,
-  useWithVariables: ChangeCompanyName_useWithVariables
+  use: ChangeNameMutation_use,
+  useWithVariables: ChangeNameMutation_useWithVariables
 };
 
 var Raw$1 = {};
 
 var query$1 = (require("@apollo/client").gql`
-  mutation AddCompany($name: String!)  {
+  mutation AddCompanyMutation($name: String!)  {
     addCompany(name: $name)  {
       __typename
       id
@@ -166,7 +166,7 @@ function makeVariables$1(name, param) {
         };
 }
 
-var AddCompany_inner = {
+var AddCompanyMutation_inner = {
   Raw: Raw$1,
   query: query$1,
   parse: parse$1,
@@ -183,26 +183,26 @@ var include$1 = ApolloClient__React_Hooks_UseMutation.Extend({
       serializeVariables: serializeVariables$1
     });
 
-var AddCompany_use = include$1.use;
+var AddCompanyMutation_use = include$1.use;
 
-var AddCompany_useWithVariables = include$1.useWithVariables;
+var AddCompanyMutation_useWithVariables = include$1.useWithVariables;
 
-var AddCompany = {
-  AddCompany_inner: AddCompany_inner,
+var AddCompanyMutation = {
+  AddCompanyMutation_inner: AddCompanyMutation_inner,
   Raw: Raw$1,
   query: query$1,
   parse: parse$1,
   serialize: serialize$1,
   serializeVariables: serializeVariables$1,
   makeVariables: makeVariables$1,
-  use: AddCompany_use,
-  useWithVariables: AddCompany_useWithVariables
+  use: AddCompanyMutation_use,
+  useWithVariables: AddCompanyMutation_useWithVariables
 };
 
 var Raw$2 = {};
 
 var query$2 = (require("@apollo/client").gql`
-  mutation DeleteCompany($id: Int!)  {
+  mutation DeleteCompanyMutation($id: Int!)  {
     deleteCompany(id: $id)
   }
 `);
@@ -234,7 +234,7 @@ function makeVariables$2(id, param) {
         };
 }
 
-var DeleteCompany_inner = {
+var DeleteCompanyMutation_inner = {
   Raw: Raw$2,
   query: query$2,
   parse: parse$2,
@@ -251,26 +251,26 @@ var include$2 = ApolloClient__React_Hooks_UseMutation.Extend({
       serializeVariables: serializeVariables$2
     });
 
-var DeleteCompany_use = include$2.use;
+var DeleteCompanyMutation_use = include$2.use;
 
-var DeleteCompany_useWithVariables = include$2.useWithVariables;
+var DeleteCompanyMutation_useWithVariables = include$2.useWithVariables;
 
-var DeleteCompany = {
-  DeleteCompany_inner: DeleteCompany_inner,
+var DeleteCompanyMutation = {
+  DeleteCompanyMutation_inner: DeleteCompanyMutation_inner,
   Raw: Raw$2,
   query: query$2,
   parse: parse$2,
   serialize: serialize$2,
   serializeVariables: serializeVariables$2,
   makeVariables: makeVariables$2,
-  use: DeleteCompany_use,
-  useWithVariables: DeleteCompany_useWithVariables
+  use: DeleteCompanyMutation_use,
+  useWithVariables: DeleteCompanyMutation_useWithVariables
 };
 
 var Raw$3 = {};
 
 var query$3 = (require("@apollo/client").gql`
-  subscription CompanyNameChanged  {
+  subscription NameChangedSub  {
     companyNameChanged  {
       __typename
       id
@@ -322,7 +322,7 @@ function makeDefaultVariables(param) {
   
 }
 
-var CompanyNameChanged_inner = {
+var NameChangedSub_inner = {
   Raw: Raw$3,
   query: query$3,
   parse: parse$3,
@@ -340,10 +340,10 @@ var include$3 = ApolloClient__React_Hooks_UseSubscription.Extend({
       serializeVariables: serializeVariables$3
     });
 
-var CompanyNameChanged_use = include$3.use;
+var NameChangedSub_use = include$3.use;
 
-var CompanyNameChanged = {
-  CompanyNameChanged_inner: CompanyNameChanged_inner,
+var NameChangedSub = {
+  NameChangedSub_inner: NameChangedSub_inner,
   Raw: Raw$3,
   query: query$3,
   parse: parse$3,
@@ -351,13 +351,13 @@ var CompanyNameChanged = {
   serializeVariables: serializeVariables$3,
   makeVariables: makeVariables$3,
   makeDefaultVariables: makeDefaultVariables,
-  use: CompanyNameChanged_use
+  use: NameChangedSub_use
 };
 
 var Raw$4 = {};
 
 var query$4 = (require("@apollo/client").gql`
-  subscription CompanyAdded  {
+  subscription CompanyAddedSub  {
     companyAdded  {
       __typename
       id
@@ -409,7 +409,7 @@ function makeDefaultVariables$1(param) {
   
 }
 
-var CompanyAdded_inner = {
+var CompanyAddedSub_inner = {
   Raw: Raw$4,
   query: query$4,
   parse: parse$4,
@@ -427,10 +427,10 @@ var include$4 = ApolloClient__React_Hooks_UseSubscription.Extend({
       serializeVariables: serializeVariables$4
     });
 
-var CompanyAdded_use = include$4.use;
+var CompanyAddedSub_use = include$4.use;
 
-var CompanyAdded = {
-  CompanyAdded_inner: CompanyAdded_inner,
+var CompanyAddedSub = {
+  CompanyAddedSub_inner: CompanyAddedSub_inner,
   Raw: Raw$4,
   query: query$4,
   parse: parse$4,
@@ -438,13 +438,13 @@ var CompanyAdded = {
   serializeVariables: serializeVariables$4,
   makeVariables: makeVariables$4,
   makeDefaultVariables: makeDefaultVariables$1,
-  use: CompanyAdded_use
+  use: CompanyAddedSub_use
 };
 
 var Raw$5 = {};
 
 var query$5 = (require("@apollo/client").gql`
-  subscription CompanyRemoved  {
+  subscription CompanyRemovedSub  {
     companyRemoved  {
       __typename
       id
@@ -492,7 +492,7 @@ function makeDefaultVariables$2(param) {
   
 }
 
-var CompanyRemoved_inner = {
+var CompanyRemovedSub_inner = {
   Raw: Raw$5,
   query: query$5,
   parse: parse$5,
@@ -510,10 +510,10 @@ var include$5 = ApolloClient__React_Hooks_UseSubscription.Extend({
       serializeVariables: serializeVariables$5
     });
 
-var CompanyRemoved_use = include$5.use;
+var CompanyRemovedSub_use = include$5.use;
 
-var CompanyRemoved = {
-  CompanyRemoved_inner: CompanyRemoved_inner,
+var CompanyRemovedSub = {
+  CompanyRemovedSub_inner: CompanyRemovedSub_inner,
   Raw: Raw$5,
   query: query$5,
   parse: parse$5,
@@ -521,13 +521,13 @@ var CompanyRemoved = {
   serializeVariables: serializeVariables$5,
   makeVariables: makeVariables$5,
   makeDefaultVariables: makeDefaultVariables$2,
-  use: CompanyRemoved_use
+  use: CompanyRemovedSub_use
 };
 
 var Raw$6 = {};
 
 var query$6 = (require("@apollo/client").gql`
-  query Companies  {
+  query CompaniesQuery  {
     companies  {
       __typename
       id
@@ -584,7 +584,7 @@ function makeDefaultVariables$3(param) {
   
 }
 
-var Companies_inner = {
+var CompaniesQuery_inner = {
   Raw: Raw$6,
   query: query$6,
   parse: parse$6,
@@ -602,16 +602,16 @@ var include$6 = ApolloClient__React_Hooks_UseQuery.Extend({
       serializeVariables: serializeVariables$6
     });
 
-var Companies_refetchQueryDescription = include$6.refetchQueryDescription;
+var CompaniesQuery_refetchQueryDescription = include$6.refetchQueryDescription;
 
-var Companies_use = include$6.use;
+var CompaniesQuery_use = include$6.use;
 
-var Companies_useLazy = include$6.useLazy;
+var CompaniesQuery_useLazy = include$6.useLazy;
 
-var Companies_useLazyWithVariables = include$6.useLazyWithVariables;
+var CompaniesQuery_useLazyWithVariables = include$6.useLazyWithVariables;
 
-var Companies = {
-  Companies_inner: Companies_inner,
+var CompaniesQuery = {
+  CompaniesQuery_inner: CompaniesQuery_inner,
   Raw: Raw$6,
   query: query$6,
   parse: parse$6,
@@ -619,17 +619,17 @@ var Companies = {
   serializeVariables: serializeVariables$6,
   makeVariables: makeVariables$6,
   makeDefaultVariables: makeDefaultVariables$3,
-  refetchQueryDescription: Companies_refetchQueryDescription,
-  use: Companies_use,
-  useLazy: Companies_useLazy,
-  useLazyWithVariables: Companies_useLazyWithVariables
+  refetchQueryDescription: CompaniesQuery_refetchQueryDescription,
+  use: CompaniesQuery_use,
+  useLazy: CompaniesQuery_useLazy,
+  useLazyWithVariables: CompaniesQuery_useLazyWithVariables
 };
 
-exports.ChangeCompanyName = ChangeCompanyName;
-exports.AddCompany = AddCompany;
-exports.DeleteCompany = DeleteCompany;
-exports.CompanyNameChanged = CompanyNameChanged;
-exports.CompanyAdded = CompanyAdded;
-exports.CompanyRemoved = CompanyRemoved;
-exports.Companies = Companies;
+exports.ChangeNameMutation = ChangeNameMutation;
+exports.AddCompanyMutation = AddCompanyMutation;
+exports.DeleteCompanyMutation = DeleteCompanyMutation;
+exports.NameChangedSub = NameChangedSub;
+exports.CompanyAddedSub = CompanyAddedSub;
+exports.CompanyRemovedSub = CompanyRemovedSub;
+exports.CompaniesQuery = CompaniesQuery;
 /* query Not a pure module */

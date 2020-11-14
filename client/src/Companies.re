@@ -1,7 +1,7 @@
 [@react.component]
 let make = () => {
-  let queryResult = GQL.Companies.use();
-  let (mutate, result) = GQL.DeleteCompany.use();
+  let queryResult = GQL.CompaniesQuery.use();
+  let (mutate, result) = GQL.DeleteCompanyMutation.use();
   <div>
     {switch (queryResult) {
      | {loading: true, data: None} => <p> "Loading"->React.string </p>

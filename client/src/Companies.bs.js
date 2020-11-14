@@ -14,7 +14,7 @@ var Query_Fragments = require("./fragmentsUsage/Query_Fragments.bs.js");
 var Query_SubscribeToMore = require("./hooksUsage/Query_SubscribeToMore.bs.js");
 
 function Companies(Props) {
-  var queryResult = Curry.app(GQL.Companies.use, [
+  var queryResult = Curry.app(GQL.CompaniesQuery.use, [
         undefined,
         undefined,
         undefined,
@@ -30,7 +30,7 @@ function Companies(Props) {
         undefined,
         undefined
       ]);
-  var match = Curry.app(GQL.DeleteCompany.use, [
+  var match = Curry.app(GQL.DeleteCompanyMutation.use, [
         undefined,
         undefined,
         undefined,

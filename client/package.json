@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "cleaner": "bsb -clean-world",
+    "clean": "bsb -clean-world",
     "watch": "BS_WATCH_CLEAR=true bsb -make-world -w",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

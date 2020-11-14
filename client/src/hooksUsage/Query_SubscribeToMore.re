@@ -12,7 +12,7 @@
 
 [%graphql
   {|
-    subscription SubscriptionForCompanies {
+    subscription CompanyAddedSub {
         companyAdded {
         id
         name
@@ -27,7 +27,7 @@ let make = () => {
 
   React.useEffect0(() => {
     queryResult.subscribeToMore(
-      ~subscription=(module SubscriptionForCompanies),
+      ~subscription=(module CompanyAddedSub),
       ~updateQuery=
         (previous, {subscriptionData: {data: {companyAdded}}}) => {
           // handle companyAdded Values here

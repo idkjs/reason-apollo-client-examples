@@ -1,6 +1,6 @@
 [@react.component]
 let make = () => {
-  let (mutate, result) = GQL.AddCompany.use();
+  let (mutate, result) = GQL.AddCompanyMutation.use();
   let (name, setName) = React.useState(() => "");
 
   React.useEffect1(
@@ -22,12 +22,11 @@ let make = () => {
       />
       <button
         onClick={_ => {
-          let variables = GQL.AddCompany.makeVariables(~name, ());
+          let variables = GQL.AddCompanyMutation.makeVariables(~name, ());
           mutate(variables)->ignore;
         }}>
         "Add"->React.string
       </button>
-
     </>
   | {loading: true} => "Loading..."->React.string
   | {data: Some({addCompany}), error: None} =>
